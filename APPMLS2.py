@@ -149,6 +149,18 @@ st.markdown("""
         font-size: 24px;
         margin: 0;
     }
+    .recommendation .genres {
+        font-size: 20px;
+        color: #f0f0f0;
+        margin: 5px 0;
+        display: flex;
+        gap: 10px;
+    }
+    .recommendation .genres span {
+        background-color: #444;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
     .recommendation .rating,
     .recommendation .year,
     .recommendation .actors,
@@ -204,6 +216,9 @@ if st.button("Show Recommendations", key="recommend_button", help="Click to get 
                             <img src="{row['poster_urls']}" alt="{row['primaryTitle']}">
                             <div class="info">
                                 <a href="{imdb_url}" target="_blank"><h3>{row['primaryTitle']}</h3></a>
+                                <div class="genres">
+                                    {''.join(f'<span>{genre.strip()}</span>' for genre in row['genresST'].strip("[]").replace("'", "").split(','))}
+                                </div>
                                 <div class="rating">⭐ {row['averageRating']}</div>
                                 <div class="year-title">Year</div>
                                 <div class="year">{row['startYear']}</div>
