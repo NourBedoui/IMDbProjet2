@@ -13,7 +13,7 @@ st.set_page_config(
 @st.cache_resource
 def load_data():
     # Chemin du fichier CSV
-    movies_path = 'C:/Users/khali/Desktop/NEX4/df_with_recommendationsSTEST.csv'
+    movies_path = 'https://raw.githubusercontent.com/NourBedoui/IMDbProjet2/master/df_with_recommendationsSTEST.csv'
     
     # Lire les données
     movies = pd.read_csv(movies_path)
